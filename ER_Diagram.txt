@@ -1,0 +1,76 @@
+ER Diagram Representation (Text-Based)
+
+Customer
++--------------------+
+| customer_id (PK)   |
+| first_name        |
+| last_name         |
+| phone_number      |
+| email            |
+| password         |
++--------------------+
+        ||
+        || owns
+        || 
+        ||--o{
+Car
++--------------------+
+| car_id (PK)       |
+| customer_id (FK)  |
+| make             |
+| model           |
+| vin_number      |
+| year           |
++--------------------+
+        ||
+        || is for
+        ||
+        ||--o{
+Appointment
++-------------------------+
+| appointment_id (PK)    |
+| customer_id (FK)       |
+| car_id (FK)           |
+| appointment_date      |
+| service_type         |
+| status              |
++-------------------------+
+        || contains
+        ||
+        ||--o{
+Appointment_Service
++----------------------+
+| appointment_id (FK) |
+| service_id (FK)    |
+| quantity          |
++----------------------+
+        || is used in
+        ||
+        ||--o{
+Service
++-----------------+
+| service_id (PK) |
+| service_name   |
+| price         |
++-----------------+
+
+----------------------
+
+        || contains
+        ||
+        ||--o{
+Appointment_Part
++----------------------+
+| appointment_id (FK) |
+| part_id (FK)       |
+| quantity          |
++----------------------+
+        || is used in
+        ||
+        ||--o{
+Part
++----------------+
+| part_id (PK)  |
+| part_name    |
+| price       |
++----------------+
